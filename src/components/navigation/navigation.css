@@ -1,0 +1,16 @@
+
+nav {
+    display: flex;
+    justify-content: center;
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 20px;
+  }
+  
+  .link {
+    margin: 1rem;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .link:visited {
+    color: black;  }
