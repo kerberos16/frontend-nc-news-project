@@ -12,17 +12,16 @@ const Articles = () => {
     axios
     .get("https://sizens-nc-news-app.herokuapp.com/api/articles")
     .then((res) => {
-      console.log(res)
       setArticlesList(res.data.articles)
     })
     .catch((err) => console.log(err))
   }, [])
 
   return (
-    <div>
+    <div className='articles-container'>
       {artcilesList.map((article) => {
         return (
-          <ArticleCard key={article.article_id} article={article} setArticlesList={setArticlesList}/>
+          <ArticleCard key={article.article_id} article={article}/>
         );
       })}
     </div>

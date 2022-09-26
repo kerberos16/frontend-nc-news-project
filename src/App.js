@@ -7,18 +7,20 @@ import Profile from './components/profile/Profile';
 import Topics from './components/topics/Topics';
 import Articles from './components/articles/Articles';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const App =() => {
 
-  const [topic, setTopic] = useState([]);
+
+  const [topics, setTopics] = useState([]);
 
   useEffect(() => {
-    fetch("https://sizens-nc-news-app.herokuapp.com/api/topics")
-      .then((res) => res.json())
-      .then((data) => {
-        setTopic(data.topics)
-      })
-  },[])
+    axios
+    .get("https://sizens-nc-news-app.herokuapp.com/api/topics")
+    .then((res) => {
+      setTopics(res.data.topics)
+    })
+  },[]);
 
   return (
     <BrowserRouter>
@@ -31,7 +33,7 @@ const App =() => {
             element={<Home/>}/>
           <Route
           path='/topics'
-          element={<Topics/>}/>
+          element={<Topics topics={topics}/>}/>
           <Route
           path='/articles'
           element={<Articles/>}/>

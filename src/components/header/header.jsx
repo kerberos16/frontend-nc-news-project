@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div>
-        <Link className="link-header" to="/">
+    <div className='header'>
+      <Link className="link-header" to="/">
         <h1>Northcoders News</h1>
       </Link>
     </div>
