@@ -8,7 +8,8 @@ const SingleArticlePage = ({}) => {
   const { id } = useParams();
 
   const [singleArticle, setSingleArticle] = useState([]);
-  const [disable, setDisable] = useState(false)
+  const [disableAdd, setDisableAdd] = useState(false)
+  const [disableRemove, setDisableRemove] = useState(false)
 
   useEffect(() => {
     api.getArticleById(id).then(article => {
@@ -30,7 +31,7 @@ const SingleArticlePage = ({}) => {
     setSingleArticle((currentSingleArticle) => {
         return {...currentSingleArticle, votes: currentSingleArticle.votes + 1}
       })
-      setDisable(true)
+      setDisableAdd(true)
   }
 
   const removeVote = () => {
@@ -47,8 +48,14 @@ const SingleArticlePage = ({}) => {
     setSingleArticle((currentSingleArticle) => {
         return {...currentSingleArticle, votes: currentSingleArticle.votes - 1}
       })
-      setDisable(true)
+      setDisableRemove(true)
   }
+
+  if(disableRemove === true && disableRemove === true) {
+    setDisableAdd(false)
+    setDisableRemove(false)
+  }
+
 
   return (
     <div className='article-page-container'>
@@ -56,11 +63,11 @@ const SingleArticlePage = ({}) => {
         <p>{singleArticle.body}</p>
         <br/>
         <div className="article-voting">
-        <button type="button" onClick={addVote} disabled={disable}>
+        <button type="button" onClick={addVote} disabled={disableAdd}>
           <span>&#9650;</span>
           <span>Vote up</span>
         </button>
-        <button type="button" onClick={removeVote} disabled={disable}>
+        <button type="button" onClick={removeVote} disabled={disableRemove}>
           <span>&#9660;</span>
           <span>Vote down</span>
         </button>       

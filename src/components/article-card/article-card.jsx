@@ -8,7 +8,8 @@ import { useState } from "react";
 const ArticleCard = ({ article, setArticlesList }) => {
 
   const [selectedArticle, setSelectedArticle] = useState(article)
-  const [disable, setDisable] = useState(false)
+  const [disableAdd, setDisableAdd] = useState(false)
+  const [disableRemove, setDisableRemove] = useState(false)
 
   const addVote = () => {
     axios
@@ -24,7 +25,7 @@ const ArticleCard = ({ article, setArticlesList }) => {
     setSelectedArticle((currentSelectedArticle) => {
         return {...currentSelectedArticle, votes: currentSelectedArticle.votes + 1}
       })
-      setDisable(true)
+      setDisableAdd(true)
   }
 
   const removeVote = () => {
@@ -41,7 +42,12 @@ const ArticleCard = ({ article, setArticlesList }) => {
     setSelectedArticle((currentSelectedArticle) => {
         return {...currentSelectedArticle, votes: currentSelectedArticle.votes - 1}
       })
-      setDisable(true)
+      setDisableRemove(true)
+  }
+
+  if(disableRemove === true && disableRemove === true) {
+    setDisableAdd(false)
+    setDisableRemove(false)
   }
 
   const navigate = useNavigate()
@@ -57,11 +63,11 @@ const ArticleCard = ({ article, setArticlesList }) => {
       </h3>
       <h4>TOPIC: {article.topic}</h4>
       <div className="article-voting">
-        <button type="button" onClick={addVote} disabled={disable}>
+        <button type="button" onClick={addVote} disabled={disableAdd}>
           <span>&#9650;</span>
           <span>Vote up</span>
         </button>
-        <button type="button" onClick={removeVote} disabled={disable}>
+        <button type="button" onClick={removeVote} disabled={disableRemove}>
           <span>&#9660;</span>
           <span>Vote down</span>
         </button>       
