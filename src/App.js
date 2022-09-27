@@ -6,20 +6,10 @@ import Home from './components/home/Home';
 import Profile from './components/profile/Profile';
 import Topics from './components/topics/Topics';
 import Articles from './components/articles/Articles';
-import { useState, useEffect } from 'react';
+import SingleArticlePage from './components/single-article-page/single-article-page';
 
 const App =() => {
-
-  const [topic, setTopic] = useState([]);
-
-  useEffect(() => {
-    fetch("https://sizens-nc-news-app.herokuapp.com/api/topics")
-      .then((res) => res.json())
-      .then((data) => {
-        setTopic(data.topics)
-      })
-  },[])
-
+  
   return (
     <BrowserRouter>
       <div className="App">
@@ -35,6 +25,12 @@ const App =() => {
           <Route
           path='/articles'
           element={<Articles/>}/>
+          <Route
+          path='/topics/:topicSlug'
+          element={<Articles/>}/>
+          {/* <Route
+          path='/articles/:id'
+          element={<SingleArticlePage/>}/> */}
           <Route
           path='/profile'
           element={<Profile/>}/>

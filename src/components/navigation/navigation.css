@@ -14,3 +14,8 @@ nav {
   
   .link:visited {
     color: black;  }
+
+  .link:hover {
+    border-bottom: 3px solid red;
+    transition: 0.45s ease-in;
+  }

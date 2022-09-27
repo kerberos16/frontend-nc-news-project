@@ -1,0 +1,43 @@
+.article-container {
+    width: 700px;
+    max-width: 100%;
+    margin: auto;
+    padding: 0 30px;
+    border-left: 3px;
+    background-color: #fff;
+}
+
+.article-container:hover{
+    border-left: 3px solid red;
+    transition: 0.25s ease-out;
+}
+
+.article-title {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: 25px;
+}
+
+.second {
+    position: relative;
+    margin: 20px auto;
+}
+
+.article-author {
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.article-author:hover{
+    text-decoration: underline;
+}
+
+.article-voting button {
+    font-family: 'Maven Pro', sans-serif;
+    margin-right: 10px;
+    margin-left: 1px;
+    margin-top: -5px;
+}
