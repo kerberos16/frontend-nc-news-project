@@ -28,9 +28,9 @@ const App =() => {
           <Route
           path='/topics/:topicSlug'
           element={<Articles/>}/>
-          {/* <Route
+          <Route
           path='/articles/:id'
-          element={<SingleArticlePage/>}/> */}
+          element={<SingleArticlePage/>}/>
           <Route
           path='/profile'
           element={<Profile/>}/>

@@ -12,6 +12,15 @@
     transition: 0.25s ease-out;
 }
 
+.article-page-container {
+    width: 700px;
+    max-width: 100%;
+    margin: auto;
+    padding: 0 30px;
+    border-left: 3px;
+    background-color: #fff;
+}
+
 .article-title {
     display: flex;
     align-items: center;
