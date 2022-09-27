@@ -9,7 +9,7 @@ const TopicItem = ({topic}) => {
     const onNavigateHandler = () => navigate(`/topics/${topic.slug}`);
 
     return (
-        <div className='topic-container' key={topic.id} onClick={onNavigateHandler}>
+        <div className='topic-container' onClick={onNavigateHandler}>
             <h2 className='topic-title'>{topic.slug}</h2>
             <p>View Articles on that topic</p>
         </div>

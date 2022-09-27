@@ -17,7 +17,7 @@ const SingleArticlePage = ({}) => {
   return (
     <div className='article-page-container'>
         <h1 className='article-title'>{singleArticle.title}</h1>
-        <body>{singleArticle.body}</body>
+        <p>{singleArticle.body}</p>
         <br/>
         <div className="article-voting">
         <button type="button">
