@@ -8,8 +8,6 @@ import { useParams } from 'react-router-dom';
 const Articles = ({}) => {
 
   const {topicSlug} = useParams()
-  console.log(topicSlug,"<===")
-
   const [artcilesList, setArticlesList] = useState([]);
 
   useEffect(() => {

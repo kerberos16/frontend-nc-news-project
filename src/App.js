@@ -1,12 +1,12 @@
 import './App.css';
-import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from './components/header/header';
 import Navigation from './components/navigation/Navigation';
 import Home from './components/home/Home';
 import Profile from './components/profile/Profile';
 import Topics from './components/topics/Topics';
 import Articles from './components/articles/Articles';
-import TopicItem from './components/topic-item/topic-item';
+import SingleArticlePage from './components/single-article-page/single-article-page';
 
 const App =() => {
   
@@ -28,6 +28,9 @@ const App =() => {
           <Route
           path='/topics/:topicSlug'
           element={<Articles/>}/>
+          <Route
+          path='/articles/:id'
+          element={<SingleArticlePage/>}/>
           <Route
           path='/profile'
           element={<Profile/>}/>
