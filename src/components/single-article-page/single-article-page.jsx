@@ -25,7 +25,7 @@ const SingleArticlePage = ({}) => {
       }
     )
     .then((res) => console.log(res))
-    .catch((err) => console.log(ererr, "Something went wrong, cannot add vote!"r))
+    .catch((err) => console.log(err, "Something went wrong, cannot add vote!"))
 
     setSingleArticle((currentSingleArticle) => {
         return {...currentSingleArticle, votes: currentSingleArticle.votes + 1}
