@@ -25,3 +25,11 @@ export const getArticles = (topic) => {
         })
     }
 }
+
+export const getArticleById = (id) => {
+    return axios
+    .get(`${baseUrl}/articles/${id}`, {params : id})
+    .then(({data : {article}}) => {
+        return article;
+    })
+}

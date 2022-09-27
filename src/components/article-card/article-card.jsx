@@ -1,8 +1,14 @@
 import "./article-card.css";
+import { useNavigate } from "react-router-dom";
+
 
 const ArticleCard = ({ article }) => {
+
+  const navigate = useNavigate()
+  const onArticleClickHandler = () => navigate(`/articles/${article.article_id}`)
+
   return (
-    <div className="article-container" key={article.article_id}>
+    <div className="article-container" key={article.article_id} onClick={onArticleClickHandler}>
    
       <h2 className="article-title">{article.title}</h2>
        

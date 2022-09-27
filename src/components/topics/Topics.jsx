@@ -18,7 +18,7 @@ const Topics = ({}) => {
     <div className='topics-container'>
       {topics.map((topic) => {
         return(
-        <TopicItem key={topic.id} topic={topic}/>)
+        <TopicItem key={topic.slug} topic={topic}/>)
         })
       }
     </div>)
