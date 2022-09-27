@@ -19,7 +19,7 @@ const ArticleCard = ({ article, setArticlesList }) => {
       }
     )
     .then((res) => console.log(res))
-    .catch((err) => console.log(err))
+    .catch((err) => console.log(err, "Something went wrong, cannot add vote!"))
 
     setSelectedArticle((currentSelectedArticle) => {
         return {...currentSelectedArticle, votes: currentSelectedArticle.votes + 1}
@@ -36,7 +36,7 @@ const ArticleCard = ({ article, setArticlesList }) => {
       }
     )
     .then((res) => console.log(res))
-    .catch((err) => console.log(err))
+    .catch((err) => console.log(err, "Something went wrong, cannot remove vote!"))
 
     setSelectedArticle((currentSelectedArticle) => {
         return {...currentSelectedArticle, votes: currentSelectedArticle.votes - 1}

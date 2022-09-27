@@ -25,7 +25,7 @@ const SingleArticlePage = ({}) => {
       }
     )
     .then((res) => console.log(res))
-    .catch((err) => console.log(err))
+    .catch((err) => console.log(ererr, "Something went wrong, cannot add vote!"r))
 
     setSingleArticle((currentSingleArticle) => {
         return {...currentSingleArticle, votes: currentSingleArticle.votes + 1}
@@ -42,7 +42,7 @@ const SingleArticlePage = ({}) => {
       }
     )
     .then((res) => console.log(res))
-    .catch((err) => console.log(err))
+    .catch((err) => console.log(err, "Something went wrong, cannot remove vote!"))
 
     setSingleArticle((currentSingleArticle) => {
         return {...currentSingleArticle, votes: currentSingleArticle.votes - 1}
