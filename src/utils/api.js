@@ -33,3 +33,11 @@ export const getArticleById = (id) => {
         return article;
     })
 }
+
+export const updateArticleVotes = (id) => {
+    return axios
+    .patch(`${baseUrl}/articles/${id}`, {params : id, inc_votes: 1})
+    .then(({data : {article}}) => {
+    return article
+})
+}

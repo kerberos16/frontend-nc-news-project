@@ -20,7 +20,7 @@ const Articles = ({}) => {
     <div className='articles-container'>
       {artcilesList.map((article) => {
         return (
-          <ArticleCard key={article.article_id} article={article}/>
+          <ArticleCard key={article.article_id} article={article} setArticlesList={setArticlesList}/>
         );
       })}
     </div>

@@ -26,7 +26,16 @@
     align-items: center;
     height: 50px;
     font-size: 25px;
+    cursor: pointer;
 }
+
+.article-page-title {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: 25px;
+}
+
 
 .second {
     position: relative;
