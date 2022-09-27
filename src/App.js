@@ -1,27 +1,15 @@
 import './App.css';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 import Header from './components/header/header';
 import Navigation from './components/navigation/Navigation';
 import Home from './components/home/Home';
 import Profile from './components/profile/Profile';
 import Topics from './components/topics/Topics';
 import Articles from './components/articles/Articles';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import TopicItem from './components/topic-item/topic-item';
 
 const App =() => {
-
-
-  const [topics, setTopics] = useState([]);
-
-  useEffect(() => {
-    axios
-    .get("https://sizens-nc-news-app.herokuapp.com/api/topics")
-    .then((res) => {
-      setTopics(res.data.topics)
-    })
-  },[]);
-
+  
   return (
     <BrowserRouter>
       <div className="App">
@@ -33,9 +21,12 @@ const App =() => {
             element={<Home/>}/>
           <Route
           path='/topics'
-          element={<Topics topics={topics}/>}/>
+          element={<Topics/>}/>
           <Route
           path='/articles'
+          element={<Articles/>}/>
+          <Route
+          path='/topics/:topicSlug'
           element={<Articles/>}/>
           <Route
           path='/profile'

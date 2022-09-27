@@ -9,6 +9,7 @@ const ArticleCard = ({ article }) => {
       <h3 className="article-author">
         Posted by {article.author} on {article.created_at.slice(0, 10)}
       </h3>
+      <h4>TOPIC: {article.topic}</h4>
       <div class="article-voting">
         <button type="button">
           <span>&#9650;</span>

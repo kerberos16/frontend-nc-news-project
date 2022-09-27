@@ -1,21 +1,22 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
-
-import './articles.css'
 import ArticleCard from '../article-card/article-card'
+import './articles.css'
 
-const Articles = () => {
+import * as api from '../../utils/api'
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+const Articles = ({}) => {
+
+  const {topicSlug} = useParams()
+  console.log(topicSlug,"<===")
 
   const [artcilesList, setArticlesList] = useState([]);
 
   useEffect(() => {
-    axios
-    .get("https://sizens-nc-news-app.herokuapp.com/api/articles")
-    .then((res) => {
-      setArticlesList(res.data.articles)
+    api.getArticles(topicSlug).then(articles => {
+      setArticlesList(articles)
     })
-    .catch((err) => console.log(err))
-  }, [])
+  }, [topicSlug])
 
   return (
     <div className='articles-container'>

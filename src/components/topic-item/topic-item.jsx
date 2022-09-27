@@ -1,10 +1,11 @@
 import {useNavigate} from 'react-router-dom';
 import './topic-item.css'
 
-const TopicItem = ({topic}) => {
-    
-    const navigate = useNavigate()
 
+
+const TopicItem = ({topic}) => {
+
+    const navigate = useNavigate()
     const onNavigateHandler = () => navigate(`/topics/${topic.slug}`);
 
     return (
