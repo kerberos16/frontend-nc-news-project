@@ -1,20 +1,17 @@
 import './comment-card.css'
+import moment from "moment"
+import CommentModifiers from '../comment-modifiers/comment-modifiers'
 
 const CommentCard = ({comment}) => {
+
+  const comment_date = moment(comment.created_at).utc().format('DD/MM/YYYY')
 
   return (
     <div className='comment-container'>
         <p>{comment.author}</p>
-        <p>{comment.votes} votes &#9679; created at:{comment.created_at.slice(0, 10)}</p>
+        <p>{comment.votes} votes &#9679; created at:{comment_date}</p>
         <p>{comment.body}</p>
-        <button className="comment-button" type="button">
-          <span>&#9650;</span>
-          <span>Vote Up</span>
-        </button>
-        <button className="comment-button" type="button">
-          <span>&#9660;</span>
-          <span>Vote Down</span>
-          </button>
+        <CommentModifiers comment={comment}/>
     </div>
   )
 }

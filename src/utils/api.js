@@ -49,3 +49,29 @@ export const getCommentsByArticleId = (id) => {
         return comments
     })
 }
+
+export const postComment = (id, commentToAdd) => {
+    return axios
+    .post(`${baseUrl}/articles/${id}/comments`, commentToAdd)
+    .then((res) => {
+        return res
+    })
+    .catch((err) => console.log(err))
+}
+
+export const updateVotesOnComment = (comment_id, voteChangeOnComment) => {
+    return axios
+    .patch(`${baseUrl}/comments/${comment_id}`, voteChangeOnComment)
+    .then((res) => {
+        return res})
+    .catch((err) => console.log(err))
+}
+
+export const deleteComment = (comment_id) => {
+    return axios
+    .delete(`${baseUrl}/comments/${comment_id}`)
+    .then((res) => {
+        return res
+    })
+    .catch((err) => console.log(err))
+}
