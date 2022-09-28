@@ -1,6 +1,8 @@
 .topic-container {
-    width: 700px;
+    position: relative;
+    width: 300px;
     max-width: 100%;
+    height: 150px;
     margin: auto;
     padding: 0 30px;
     border-left: 3px;
@@ -17,6 +19,15 @@
 }
 
 .topic-container:hover{
+    color: white;
+    background-color: red;
     border-left: 3px solid red;
     transition: 0.25s ease-out;
+}
+
+.arrow {
+    bottom: -220px;
+    left: 250px;
+    position: absolute;
+    font-size: 200px;
 }

@@ -2,6 +2,7 @@ import './single-article-page.css'
 import * as api from '../../utils/api'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Comments from '../comments/Comments';
 
 const SingleArticlePage = () => {
   const { id } = useParams();
@@ -20,7 +21,6 @@ const SingleArticlePage = () => {
     api.updateVotes(id, voteChange).then((res) => console.log(res))
 
     setSingleArticle((currentSingleArticle) => {
-      console.log(currentSingleArticle)
         return {...currentSingleArticle, votes: currentSingleArticle.votes + num}
       })
       setDisable(true)
@@ -32,11 +32,11 @@ const SingleArticlePage = () => {
         <p>{singleArticle.body}</p>
         <br/>
         <div className="article-voting">
-        <button type="button" onClick={ () => handleVotes(1)} disabled={disable}>
+        <button className="voting-button" type="button" onClick={ () => handleVotes(1)} disabled={disable}>
           <span>&#9650;</span>
           <span>Vote up</span>
         </button>
-        <button type="button" onClick={() => handleVotes(-1)} disabled={disable}>
+        <button className="voting-button" type="button" onClick={() => handleVotes(-1)} disabled={disable}>
           <span>&#9660;</span>
           <span>Vote down</span>
         </button>       
@@ -45,13 +45,13 @@ const SingleArticlePage = () => {
       </h4>
       </div> 
       <div>
-        <button>
-          Post a Comment
+        <button className="voting-button">
+          <span>Post a Comment</span>
         </button>
       </div>
       <br/>
       <div>
-       Comments come here
+       <Comments/>
       </div>
     </div>);
 };

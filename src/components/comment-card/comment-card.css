@@ -1,16 +1,21 @@
-.voting-button{
-    background-color: red;
-    border: none;
-    width:100px;
-    height: 50px;
+.comment-container {
+    border-bottom: 1px solid black;
 }
 
-.voting-button:hover{
+.comment-button{
+    background-color: red;
+    border: none;
+    width: 100px;
+    height: 25px;
+    margin: 5px
+}
+
+.comment-button:hover{
     background-color: darkred;
     transition: 0.45s ease-out;
 }
 
-.voting-button:disabled{
+.comment-button:disabled{
     background-color: gray;
     border: 1px solid black;
 }
