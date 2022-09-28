@@ -5,7 +5,7 @@ import * as api from '../../utils/api'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const Articles = ({}) => {
+const Articles = () => {
 
   const {topicSlug} = useParams()
   const [artcilesList, setArticlesList] = useState([]);
@@ -20,7 +20,7 @@ const Articles = ({}) => {
     <div className='articles-container'>
       {artcilesList.map((article) => {
         return (
-          <ArticleCard key={article.article_id} article={article} setArticlesList={setArticlesList}/>
+          <ArticleCard key={article.article_id} article={article}/>
         );
       })}
     </div>

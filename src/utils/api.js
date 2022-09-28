@@ -42,6 +42,7 @@ export const updateVotes = (id, voteChange) => {
     .catch((err) => console.log(err))
 }
 
+<<<<<<< HEAD
 export const getCommentsByArticleId = (id) => {
     return axios
     .get(`${baseUrl}/articles/${id}/comments`, {params : id})
@@ -49,3 +50,12 @@ export const getCommentsByArticleId = (id) => {
         return comments
     })
 }
+=======
+// export const getCommentsByArticleId = (id) => {
+//     return axios
+//     .get(`${baseUrl}/articles/${id}/comments`, {params : id})
+//     .then(({data : {comments}}) => {
+//         return comments
+//     })
+// }
+>>>>>>> df4ff20b983063b362cd4d703d82d2a20d507957

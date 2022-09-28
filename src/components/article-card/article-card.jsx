@@ -1,54 +1,7 @@
 import "./article-card.css";
 import { useNavigate } from "react-router-dom";
-import * as api from '../../utils/api'
-import axios from "axios";
-import { useState } from "react";
 
-
-const ArticleCard = ({ article, setArticlesList }) => {
-
-  const [selectedArticle, setSelectedArticle] = useState(article)
-  const [disableAdd, setDisableAdd] = useState(false)
-  const [disableRemove, setDisableRemove] = useState(false)
-
-  const addVote = () => {
-    axios
-    .patch(
-      `https://sizens-nc-news-app.herokuapp.com/api/articles/${article.article_id}`,
-      {
-        inc_votes: 1
-      }
-    )
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err, "Something went wrong, cannot add vote!"))
-
-    setSelectedArticle((currentSelectedArticle) => {
-        return {...currentSelectedArticle, votes: currentSelectedArticle.votes + 1}
-      })
-      setDisableAdd(true)
-  }
-
-  const removeVote = () => {
-    axios
-    .patch(
-      `https://sizens-nc-news-app.herokuapp.com/api/articles/${article.article_id}`,
-      {
-        inc_votes: -1
-      }
-    )
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err, "Something went wrong, cannot remove vote!"))
-
-    setSelectedArticle((currentSelectedArticle) => {
-        return {...currentSelectedArticle, votes: currentSelectedArticle.votes - 1}
-      })
-      setDisableRemove(true)
-  }
-
-  if(disableRemove === true && disableRemove === true) {
-    setDisableAdd(false)
-    setDisableRemove(false)
-  }
+const ArticleCard = ({ article }) => {
 
   const navigate = useNavigate()
   const onArticleClickHandler = () => navigate(`/articles/${article.article_id}`)
@@ -61,23 +14,11 @@ const ArticleCard = ({ article, setArticlesList }) => {
       <h3 className="article-author">
         Posted by {article.author} on {article.created_at.slice(0, 10)}
       </h3>
-      <h4>TOPIC: {article.topic}</h4>
-      <div className="article-voting">
-        <button type="button" onClick={addVote} disabled={disableAdd}>
-          <span>&#9650;</span>
-          <span>Vote up</span>
-        </button>
-        <button type="button" onClick={removeVote} disabled={disableRemove}>
-          <span>&#9660;</span>
-          <span>Vote down</span>
-        </button>       
+      <h4>TOPIC: {article.topic}</h4>  
         <h4>
-        Votes: {selectedArticle.votes} Comments: {article.comment_count}
+        Votes: {article.votes} Comments: {article.comment_count}
       </h4>
-      </div>        
-
-
-    </div>
+      </div> 
   );
 };
 
