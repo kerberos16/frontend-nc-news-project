@@ -10,8 +10,9 @@ const TopicItem = ({topic}) => {
 
     return (
         <div className='topic-container' onClick={onNavigateHandler}>
+            <p className='arrow'>&#8250;</p>           
             <h2 className='topic-title'>{topic.slug}</h2>
-            <p>View Articles on that topic</p>
+            <p>View Articles on that topic</p>     
         </div>
     )
 }

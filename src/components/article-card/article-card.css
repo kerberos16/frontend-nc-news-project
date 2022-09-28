@@ -8,6 +8,8 @@
 }
 
 .article-container:hover{
+    color: white;
+    background-color: red;
     border-left: 3px solid red;
     transition: 0.25s ease-out;
 }
@@ -36,7 +38,6 @@
     font-size: 25px;
 }
 
-
 .second {
     position: relative;
     margin: 20px auto;
@@ -51,6 +52,7 @@
 
 .article-author:hover{
     text-decoration: underline;
+    color: white;
 }
 
 .article-voting button {
