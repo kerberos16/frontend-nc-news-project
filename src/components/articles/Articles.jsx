@@ -5,7 +5,7 @@ import * as api from '../../utils/api'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const Articles = ({}) => {
+const Articles = () => {
 
   const {topicSlug} = useParams()
   const [artcilesList, setArticlesList] = useState([]);

@@ -3,10 +3,11 @@ import * as api from '../../utils/api'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const SingleArticlePage = ({}) => {
+const SingleArticlePage = () => {
   const { id } = useParams();
 
   const [singleArticle, setSingleArticle] = useState([]);
+  const [disable, setDisable] = useState(false)
 
   useEffect(() => {
     api.getArticleById(id).then(article => {
@@ -14,17 +15,28 @@ const SingleArticlePage = ({}) => {
     });
   }, [id]);
 
+  const handleVotes = (num) => {
+    const voteChange = {inc_votes : num}
+    api.updateVotes(id, voteChange).then((res) => console.log(res))
+
+    setSingleArticle((currentSingleArticle) => {
+      console.log(currentSingleArticle)
+        return {...currentSingleArticle, votes: currentSingleArticle.votes + num}
+      })
+      setDisable(true)
+  }
+
   return (
     <div className='article-page-container'>
-        <h1 className='article-title'>{singleArticle.title}</h1>
+        <h1 className='article-page-title'>{singleArticle.title}</h1>
         <p>{singleArticle.body}</p>
         <br/>
         <div className="article-voting">
-        <button type="button">
+        <button type="button" onClick={ () => handleVotes(1)} disabled={disable}>
           <span>&#9650;</span>
           <span>Vote up</span>
         </button>
-        <button type="button">
+        <button type="button" onClick={() => handleVotes(-1)} disabled={disable}>
           <span>&#9660;</span>
           <span>Vote down</span>
         </button>       
@@ -39,7 +51,7 @@ const SingleArticlePage = ({}) => {
       </div>
       <br/>
       <div>
-        ALL COMMENTS TO BE DISPLAYED BELOW
+       Comments come here
       </div>
     </div>);
 };

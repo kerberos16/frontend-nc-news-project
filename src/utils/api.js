@@ -33,3 +33,19 @@ export const getArticleById = (id) => {
         return article;
     })
 }
+
+export const updateVotes = (id, voteChange) => {
+    return axios
+    .patch(`${baseUrl}/articles/${id}`, voteChange)
+    .then((res) => {
+        return res})
+    .catch((err) => console.log(err))
+}
+
+// export const getCommentsByArticleId = (id) => {
+//     return axios
+//     .get(`${baseUrl}/articles/${id}/comments`, {params : id})
+//     .then(({data : {comments}}) => {
+//         return comments
+//     })
+// }
