@@ -28,7 +28,7 @@ const App =() => {
           path='/articles'
           element={<Articles/>}/>
           <Route
-          path='/topics/:topicSlug'
+          path='/topics/:topic'
           element={<Articles/>}/>
           <Route
           path='/articles/:id'
