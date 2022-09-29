@@ -10,20 +10,12 @@ export const getTopics = () => {
     })
 }
 
-export const getArticles = (topic) => {
-    if(!topic){
+export const getArticles = (params) => {
         return axios
-        .get(`${baseUrl}/articles`)
-        .then(({data : {articles}}) => {
-            return articles
-        })
-    } else {
-        return axios
-        .get(`${baseUrl}/articles?topic=${topic}`, {params : topic})
+        .get(`${baseUrl}/articles`, {params : params})
         .then(({data : {articles}}) => {
             return articles;
         })
-    }
 }
 
 export const getArticleById = (id) => {
