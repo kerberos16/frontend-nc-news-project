@@ -14,13 +14,13 @@ const Comments = () => {
         api.getCommentsByArticleId(id).then(comments => {
             setCommentsList(comments)
         })
-    }, [id]);
+    }, [id, commentsList]);
 
-    const commentsByDate = [...commentsList].sort((a,b) => b.votes - a.votes)
+    const commentsByVotes = [...commentsList].sort((a,b) => b.votes - a.votes)
 
     return (
         <div>
-            {commentsByDate.map((comment) => {
+            {commentsByVotes.map((comment) => {
                 return (
                     <CommentCard key={comment.comment_id} comment={comment}/>
                 )

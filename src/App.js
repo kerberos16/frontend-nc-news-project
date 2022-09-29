@@ -7,6 +7,8 @@ import Profile from './components/profile/Profile';
 import Topics from './components/topics/Topics';
 import Articles from './components/articles/Articles';
 import SingleArticlePage from './components/single-article-page/single-article-page';
+import AddComment from './components/add-comment/add-comment';
+import CommentModifiers from './components/comment-modifiers/comment-modifiers';
 
 const App =() => {
   
@@ -34,6 +36,12 @@ const App =() => {
           <Route
           path='/profile'
           element={<Profile/>}/>
+          <Route
+          path='/articles/:id/comments'
+          element={<AddComment/>}/>
+          <Route
+          path='/comments/:comments_id'
+          element={<CommentModifiers/>}/>
         </Routes>
       </div>    
     </BrowserRouter>

@@ -3,6 +3,7 @@ import * as api from '../../utils/api'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Comments from '../comments/Comments';
+import AddComment from '../add-comment/add-comment';
 
 const SingleArticlePage = () => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ const SingleArticlePage = () => {
     api.getArticleById(id).then(article => {
         setSingleArticle(article)
     });
-  }, [id]);
+  }, [id, singleArticle.comment_count]);
 
   const handleVotes = (num) => {
     const voteChange = {inc_votes : num}
@@ -45,9 +46,9 @@ const SingleArticlePage = () => {
       </h4>
       </div> 
       <div>
-        <button className="voting-button">
-          <span>Post a Comment</span>
-        </button>
+        <div>
+          <AddComment/>
+        </div>
       </div>
       <br/>
       <div>

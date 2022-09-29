@@ -1,0 +1,18 @@
+.comment-to-post {
+    height: 30px;
+    width: 200px;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: white;
+}
+
+.textarea {
+    height: 30px;
+    width: 500px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: white;
+}
