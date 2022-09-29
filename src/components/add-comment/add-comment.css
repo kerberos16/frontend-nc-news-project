@@ -16,3 +16,17 @@
     border-bottom: 1px solid black;
     background-color: white;
 }
+
+.post-comment-status {
+    visibility: hidden;
+}
+
+.post-comment-status-success {
+    visibility: hidden;
+    color: black;
+}
+
+.post-comment-status-fail {
+    visibility: hidden;
+    color: black;
+}
