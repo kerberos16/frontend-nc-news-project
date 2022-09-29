@@ -67,19 +67,3 @@ export const deleteComment = (comment_id) => {
     })
     .catch((err) => console.log(err))
 }
-
-// export const getArticles = (topic) => {
-//     if(!topic){
-//         return axios
-//         .get(`${baseUrl}/articles`)
-//         .then(({data : {articles}}) => {
-//             return articles
-//         })
-//     } else {
-//         return axios
-//         .get(`${baseUrl}/articles?topic=${topic}`, {params : topic})
-//         .then(({data : {articles}}) => {
-//             return articles;
-//         })
-//     }
-// }

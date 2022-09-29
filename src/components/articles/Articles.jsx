@@ -13,8 +13,7 @@ const Articles = () => {
   const [params, setParams] = useState({})
   const [sortBy, setSortBy] = useState("created_at")
   const [orderBy, setOrderBy] = useState("desc")
-  // setParams({topicSlug});
-
+  
     useEffect(() => {
       setIsLoading(true);
       api.getArticles(params).then((articles) => {
