@@ -5,6 +5,7 @@
     padding: 0 30px;
     border-left: 3px;
     background-color: #fff;
+    border-bottom: 2px solid red;
 }
 
 .article-container:hover{
@@ -61,3 +62,16 @@
     margin-left: 1px;
     margin-top: -5px;
 }
+
+
+@media screen and (max-width: 480px) {
+    .article-title {
+        font-size: 1.3rem;
+    }
+    .article-author {
+        font-size: 12px;
+    }
+    .article-container{
+        width: 300px;
+    }
+  }

@@ -15,3 +15,16 @@
     background-color: gray;
     border: 1px solid black;
 }
+
+@media screen and (max-width: 480px) {
+    .article-page-title {
+        font-size: 1.5rem;
+        inline-size: 320px;
+        overflow-wrap: break-word;
+    }
+    .article-body {
+        font-size: 15px;
+        inline-size: 320px;
+        overflow-wrap: break-word;
+    }
+  }

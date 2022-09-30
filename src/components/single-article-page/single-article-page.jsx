@@ -30,7 +30,7 @@ const SingleArticlePage = () => {
   return (
     <div className='article-page-container'>
         <h1 className='article-page-title'>{singleArticle.title}</h1>
-        <p>{singleArticle.body}</p>
+        <p className='article-body'>{singleArticle.body}</p>
         <br/>
         <div className="article-voting">
         <button className="voting-button" type="button" onClick={ () => handleVotes(1)} disabled={disable}>

@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <div>
       <h1 className='home-title'>Currently Trending</h1>
-      <p className='home-title'> These are our Top 5 most commented articles</p>
+      <p className='home-subtitle'> These are our Top 5 most commented articles</p>
       {topFiveFinalList.map((article) => {
         return(
           <ArticleCard key={article.article_id} article={article}/>

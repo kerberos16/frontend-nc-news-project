@@ -1,5 +1,6 @@
 import ArticleCard from '../article-card/article-card'
 import './articles.css'
+import Select from 'react-select'
 
 import * as api from '../../utils/api'
 import { useEffect, useState } from 'react';
@@ -13,6 +14,17 @@ const Articles = () => {
   const [params, setParams] = useState({})
   const [sortBy, setSortBy] = useState("created_at")
   const [orderBy, setOrderBy] = useState("desc")
+
+  const sortingOptions = [
+    { value: 'created_at', label: 'Date' },
+    { value: 'votes', label: 'Votes' },
+    { value: 'comment_count', label: 'Comments' }
+  ]
+
+  const orderingOptions = [
+    { value: 'desc', label: 'Descending' },
+    { value: 'asc', label: 'Ascending' },
+  ]
   
     useEffect(() => {
       setIsLoading(true);
@@ -26,7 +38,7 @@ const Articles = () => {
       setParams((currentParams) => {
         return{...currentParams, topic: topic, sort_by: sortBy, order: orderBy}
       })
-    }, [topic, sortBy, orderBy])
+    }, [topic, setSortBy, orderBy])
 
     if(isLoading){
       return <p>Loading....</p>
@@ -35,17 +47,16 @@ const Articles = () => {
   return (
     <div className='articles-container'>
       <label htmlFor="sort-by">SORT BY:</label>
-        <select onChange={(e) => setSortBy(e.target.value)} name="sort_by" id="sort_by">
-          <option value={"choose option"}>Choose sorting</option>
-          <option value={"created_at"}>Date</option>
-          <option value={"comment_count"}>Comment Count</option>
-          <option value={"votes"}>Votes</option>
-        </select>
+          <Select
+          options={sortingOptions}
+          onChange={(choice) => (setSortBy(choice.value))}
+          />
+          
         <label htmlFor="order">ORDER BY:</label>
-        <select onChange={(e) => setOrderBy(e.target.value)} name="order" id="order">
-          <option value="desc">Descending</option>
-          <option value="asc">Ascending</option>
-        </select>      
+        <Select
+          options={orderingOptions}
+          onChange={(choice) => setOrderBy(choice.value)}
+          />
       {artcilesList.map((article) => {
         return (
           <ArticleCard key={article.article_id} article={article}/>

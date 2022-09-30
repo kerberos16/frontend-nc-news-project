@@ -10,7 +10,7 @@ const CommentCard = ({comment}) => {
     <div className='comment-container'>
         <p>{comment.author}</p>
         <p>{comment.votes} votes &#9679; created at:{comment_date}</p>
-        <p>{comment.body}</p>
+        <p className="comment-body">{comment.body}</p>
         <CommentModifiers comment={comment}/>
     </div>
   )
