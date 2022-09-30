@@ -4,7 +4,7 @@ import './topics.css'
 import * as api from '../../utils/api'
 import { useEffect, useState } from 'react';
 
-const Topics = ({}) => {
+const Topics = () => {
 
     const [topics, setTopics] = useState([]);
 

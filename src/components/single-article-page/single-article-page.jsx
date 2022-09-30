@@ -13,7 +13,6 @@ const SingleArticlePage = () => {
   const [singleArticle, setSingleArticle] = useState([]);
   const [disable, setDisable] = useState(false)
   const [isError, setIsError] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     api.getArticleById(id).then(article => {
