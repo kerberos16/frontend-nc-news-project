@@ -21,7 +21,7 @@ const App =() => {
     <BrowserRouter>
       <div className="App">
         <Header/>
-        <Navigation setUserSignedIn={setUserSignedIn}/>
+        <Navigation userSignedIn={userSignedIn}/>
         <SignIn setUserSignedIn={setUserSignedIn}/>
         { userSignedIn === false ? (
           <>
