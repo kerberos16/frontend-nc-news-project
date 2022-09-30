@@ -1,0 +1,20 @@
+.error-page {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 50px;
+}
+.redirect-link {
+    color: black;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.redirect-container:hover{
+    background-color: red;
+    border-left: 3px solid red;
+    transition: 0.25s ease-out;
+}
+
+.redirect-container p:hover {
+    color: white;
+}

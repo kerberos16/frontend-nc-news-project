@@ -4,17 +4,21 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Comments from '../comments/Comments';
 import AddComment from '../add-comment/add-comment';
+import Error from '../error/error';
+
 
 const SingleArticlePage = () => {
   const { id } = useParams();
 
   const [singleArticle, setSingleArticle] = useState([]);
   const [disable, setDisable] = useState(false)
+  const [isError, setIsError] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     api.getArticleById(id).then(article => {
         setSingleArticle(article)
-    });
+    }).catch((err)=> setIsError(true));
   }, [id, singleArticle.comment_count]);
 
   const handleVotes = (num) => {
@@ -29,6 +33,8 @@ const SingleArticlePage = () => {
 
   return (
     <div className='article-page-container'>
+        {isError ? <Error/> :
+        <>
         <h1 className='article-page-title'>{singleArticle.title}</h1>
         <p className='article-body'>{singleArticle.body}</p>
         <br/>
@@ -54,6 +60,7 @@ const SingleArticlePage = () => {
       <div>
        <Comments/>
       </div>
+        </>}
     </div>);
 };
 

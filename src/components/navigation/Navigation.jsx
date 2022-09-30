@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
 import './navigation.css'
 
-const Navigation = () => {
+const Navigation = ({userSignedIn}) => {
   return (
     <nav>
+      {userSignedIn ? (
+        <>
+      <Link className="link" to="/sign-in">
+        Sign In
+      </Link>
+        </>
+      ) : (
+        <>
       <Link className="link" to="/">
         Home
       </Link>
@@ -12,13 +20,10 @@ const Navigation = () => {
       </Link>
       <Link className="link" to="/articles">
         Articles
-      </Link>
-      <Link className="link" to="/sign-up">
-        Sign Up
-      </Link>
-      <Link className="link" to="/my-profile">
-        Log In
-      </Link>
+      </Link>           
+        </>
+      )
+      }
     </nav>
   );
 };

@@ -9,18 +9,29 @@ import Articles from './components/articles/Articles';
 import SingleArticlePage from './components/single-article-page/single-article-page';
 import AddComment from './components/add-comment/add-comment';
 import CommentModifiers from './components/comment-modifiers/comment-modifiers';
+import Error from './components/error/error';
+import SignIn from './components/sign-in/sign-in';
+import { useState } from 'react';
 
 const App =() => {
+
+  const [userSignedIn, setUserSignedIn] = useState(false)
   
   return (
     <BrowserRouter>
       <div className="App">
         <Header/>
-        <Navigation />
+        <Navigation setUserSignedIn={setUserSignedIn}/>
+        <SignIn setUserSignedIn={setUserSignedIn}/>
+        { userSignedIn === false ? (
+          <>
+          <p className='login-message'>You need to sign in first</p>
+          </>
+        ) : (
         <Routes>
           <Route
-            path='/'
-            element={<Home/>}/>
+          path='/'
+          element={<Home/>}/>
           <Route
           path='/topics'
           element={<Topics/>}/>
@@ -42,7 +53,10 @@ const App =() => {
           <Route
           path='/comments/:comments_id'
           element={<CommentModifiers/>}/>
-        </Routes>
+          <Route
+          path='*'
+          element={<Error />}/>
+        </Routes>)}
       </div>    
     </BrowserRouter>
 

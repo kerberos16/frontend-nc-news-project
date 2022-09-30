@@ -67,3 +67,11 @@ export const deleteComment = (comment_id) => {
     })
     .catch((err) => console.log(err))
 }
+
+export const getUsers = () => {
+    return axios
+    .get(`${baseUrl}/users`)
+    .then(({data : {users}}) => {
+        return users;
+    })
+}

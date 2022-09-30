@@ -9,6 +9,10 @@
     text-align: center;
 }
 
+.login-message {
+    text-align: center;
+}
+
 @media screen and (min-width: 480px) {
     .home-title {
         font-size: 30px;
